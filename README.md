@@ -12,6 +12,10 @@ I made this as a side-projectto practice using TCP sockets and threading.
 
 ## Requirements
 - Python 3.x
+- colorama module
+```
+pip install colorama
+```
 - filter-profanity module
 ```
 pip install filter-profanity
