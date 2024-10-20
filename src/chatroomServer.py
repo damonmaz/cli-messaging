@@ -1,7 +1,6 @@
 from socket import *
 import parameters as p
 from threading import Lock
-from profanity import censor_profanity
 
 class ChatroomServer:
     
@@ -55,8 +54,6 @@ class ChatroomServer:
                 
                 
                 with self.t_lock: # Lock threads while accessing
-                    
-                    msg = censor_profanity(msg)
                     
                     dead_clients = []  
                     for client in self.clients_sockets_dict.keys():

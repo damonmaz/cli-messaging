@@ -5,6 +5,13 @@ from socket import *
 
 
 def main():
+    
+    # Variables
+    server : chatroomServer = None
+    t : Thread = None
+    client_socket : socket = None 
+    client_address : str = ''
+
 
     server = chatroomServer.ChatroomServer()
     
@@ -38,13 +45,13 @@ def main():
             print(f"[+] {client_address} connected.")
 
             # start a new thread that listens for each client's messages
-            thread = Thread(target=server.client_propagate, args=(client_socket,))
-            thread.daemon = True # thread ends whenever the main thread ends
-            thread.start()
+            t = Thread(target=server.client_propagate, args=(client_socket,))
+            t.daemon = True # thread ends whenever the main thread ends
+            t.start()
             
             # Set key as client socket and its thread as its value
             with server.t_lock: # Lock threads while accessing
-                server.clients_sockets_dict[client_socket] = thread
+                server.clients_sockets_dict[client_socket] = t
         
         # Disconnect clients, stop threads, and shut down server and with Keyboard Interrupt
         except KeyboardInterrupt:
@@ -66,7 +73,6 @@ def main():
             print(f"Error in main loop: {str(e)}")
             continue
     
-     
 
 if __name__ == "__main__":
     main()
