@@ -36,6 +36,7 @@ class ChatroomClient:
         # Try connecting
         try:
             self.client_socket.connect((p.ServerParameters.SERVER_ADDRESS.value, p.ServerParameters.SERVER_PORT.value))
+            print("Connected!")
         
         # Raise error and exit if unable to connect
         except:
@@ -52,7 +53,7 @@ class ChatroomClient:
         
         while True:
             try:
-                message = self.client_socket.recv(1024).decode()
+                message = self.client_socket.recv(2048).decode()
                 print("\n" + message)
                 
             except ConnectionResetError:
@@ -60,8 +61,6 @@ class ChatroomClient:
                 exit(1)
                 
             except ConnectionAbortedError:
-                print("Server connection lost")
+                print("Disconnected from server")
                 exit(1)
                 
-            
-    

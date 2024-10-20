@@ -1,9 +1,7 @@
 from socket import *
-# import chatroomClient
-# import pickle
 import parameters as p
-from threading import Thread, Lock
-
+from threading import Lock
+from profanity import censor_profanity
 
 class ChatroomServer:
     
@@ -49,7 +47,7 @@ class ChatroomServer:
             # Client message
             try:
                 # msg = cli_soc.client_socket.recv(1024).decode()
-                msg = cli_soc.recv(1024).decode()
+                msg = cli_soc.recv(2048).decode()
                 
                 # If message is empty, client has disconnected
                 if not msg:
@@ -57,6 +55,8 @@ class ChatroomServer:
                 
                 
                 with self.t_lock: # Lock threads while accessing
+                    
+                    msg = censor_profanity(msg)
                     
                     dead_clients = []  
                     for client in self.clients_sockets_dict.keys():
