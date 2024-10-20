@@ -8,7 +8,7 @@ I made this as a side-project to practice using TCP sockets and threading (and a
 ## Implementation Details
 - Uses TCP (Transmission Control Protocol) sockets for communication between server and clients
 - Implements threading for concurrent sending and receiving of messages
-- Includes a profanity filters and checks to make sure messages and usernames meet packet size requirements
+- Includes profanity filters, and checks to make sure messages and usernames meet packet size requirements, spam protection, and some other checks
 
 ## Requirements
 - Python 3.x
