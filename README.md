@@ -3,7 +3,7 @@
 ## Overview
 A chatroom application where clients can connect to a server and chat with each other.
 
-I made this as a side-projectto practice using TCP sockets and threading.
+I made this as a side-project to practice using TCP sockets and threading (and also general fun and enjoyment 😊)
 
 ## Implementation Details
 - Uses TCP (Transmission Control Protocol) sockets for communication between server and clients
