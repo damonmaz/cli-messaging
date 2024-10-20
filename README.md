@@ -29,13 +29,15 @@ Parameters of the server and client, such as the name of the server, the server 
 ### Run the Program
 In the command line interface, one instance of the server should be run and many clients can be run.
 
+Change the active directory to src directory (C:\path\to\this\dir\src)
+
 Run server:
 
 ```
 python server_main.py
 ```
 
-Run client:
+Run client(s):
 
 ```
 python client_main.py
