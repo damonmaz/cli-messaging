@@ -51,7 +51,17 @@ class ChatroomClient:
         """
         
         while True:
-            message = self.client_socket.recv(1024).decode()
-            print("\n" + message)
+            try:
+                message = self.client_socket.recv(1024).decode()
+                print("\n" + message)
+                
+            except ConnectionResetError:
+                print("Connection to server terminated")
+                exit(1)
+                
+            except ConnectionAbortedError:
+                print("Server connection lost")
+                exit(1)
+                
             
     

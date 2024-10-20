@@ -27,6 +27,7 @@ def main():
         # Shut down client with Keyboard Interrupt
         except KeyboardInterrupt:
             client.client_socket.close()
+            t.join()
             break 
 
 
