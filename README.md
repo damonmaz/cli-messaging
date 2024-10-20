@@ -25,6 +25,7 @@ pip install filter-profanity
 
 ### Change Parameters
 Parameters of the server and client, such as the name of the server, the server IP address or server port number, can be changed in parameters.py
+(defaults to localhost)
 
 ### Run the Program
 In the command line interface, one instance of the server should be run and many clients can be run.
